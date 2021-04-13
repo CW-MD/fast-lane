@@ -1,0 +1,12 @@
+{
+  "name": "fast-lane",
+  "displayName": "fast-lane",
+  "expo": {
+    "name": "fast-lane",
+    "slug": "fast-lane",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
