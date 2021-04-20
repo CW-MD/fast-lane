@@ -4,23 +4,40 @@ import {Text, View, StyleSheet, TextInput} from 'react-native'
 export default function Input(){
 
     const [number, onChange]= useState(null)
-    const hour = new Date().getHours()
-    const min = new Date().getMinutes()
-    let dateStamp = new Date().toLocaleDateString()
+    const curhour = new Date().getHours()
+    const curmin = new Date().getMinutes()
+    const curDay = new Date().getDate() ;
+    const curMonth = new Date().getMonth() + 1
+
+    //let dateStamp = new Date().toLocaleDateString()
+
+    const convert = (hours) =>{
+        let dayCount = 0;
+        let hourCount = 0;
+        while(hours >= 24){
+            dayCount++;
+            hours -=24;
+        }
+        hourCount += hours;
+
+
+        console.log(`You can break the fast in ${dayCount} days, ${hourCount} hours`)
+        
+    }
 
     
-    console.log(timeStamp)
-    console.log(hour, typeof hour)
-    console.log(min)
+    
+    console.log(curhour, typeof curhour)
+    console.log(curmin)
     return(
         <>
-        <Text>The Current Date is {dateStamp} at {hour}:{min}</Text>
+        <Text>The Current Date is {curMonth}/{curDay} at {curhour}:{curmin}</Text>
         <Text>I want to fast for <TextInput style={styles.input} 
         value={number} 
         keyboardType='number-pad' 
         placeholder="number of"
         onChangeText={onChange} 
-        onSubmitEditing={console.log(number)}/> 
+        onSubmitEditing={convert(number)}/> 
           hours</Text>
         </>
     )
